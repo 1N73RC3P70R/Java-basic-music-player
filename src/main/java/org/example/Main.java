@@ -1,37 +1,60 @@
 package org.example;
 
-import java.io.File;
-import java.io.FileWriter;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
-import java.io.Writer;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        File file = new File("SECRET FILE.txt");
-        Scanner scanner = new Scanner(System.in);
+        LoadingScreen loadingScreen = new LoadingScreen();
+        UserInteraction userInteraction = new UserInteraction();
 
-        //check if "ignition key" is in position
-        if (file.exists()) {
-            System.out.println("Loading.");
-            System.out.println("Loading..");
-            System.out.println("Loading...");
+
+        //Ignition key check
+        if (loadingScreen.fileExists("SECRET FILE.txt")) {
+            userInteraction.loadingMessage();
+
         } else {
-            System.out.println("Failed to load!\nError 001");
+            userInteraction.ignitionKeyError();
             return;
         }
 
-        System.out.println("Who is starting up the program?\n");
-        String userName = scanner.nextLine();
 
-//starting screen
+        //Ask username
+        String username = userInteraction.askUsername();
+
         try {
-            FileWriter welcome = new FileWriter("Welcome.txt");
-            welcome.write("Welcome, ");
-            welcome.close();
+            Music song = new Music();
+            song.playMusic();
+        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+        try {
+            loadingScreen.writeToFile("Welcome.txt", "Welcome, " + username);
+            String welcome = loadingScreen.readFromFile("Welcome.txt");
+            userInteraction.display(welcome);
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
 
+
+        try {
+            String ignitionKey = loadingScreen.readFromFile("SECRET FILE.txt");
+            userInteraction.display(ignitionKey);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    while (true) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }}
+
+}
+
