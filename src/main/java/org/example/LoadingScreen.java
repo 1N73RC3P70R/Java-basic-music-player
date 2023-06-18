@@ -6,20 +6,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class LoadingScreen {
-    public boolean fileExists(String filename) {
-        File ignitionKey = new File(filename);
+    public boolean fileExists(final String filename) {
+        final File ignitionKey = new File(filename);
         return ignitionKey.exists();
     }
 
-    public void writeToFile(String filename, String insideFile) throws IOException {
-        FileWriter writer = new FileWriter(filename);
+    public void writeToFile(final String filename, final String insideFile) throws IOException {
+        final FileWriter writer = new FileWriter(filename);
         writer.write(insideFile);
         writer.close();
     }
 
-    public String readFromFile(String filename) throws IOException {
-        FileReader readFromFile = new FileReader(filename);
-        StringBuilder insideFile = new StringBuilder();
+    public String readFromFile(final String filename) throws IOException {
+        final FileReader readFromFile = new FileReader(filename);
+        final StringBuilder insideFile = new StringBuilder();
         int data = readFromFile.read();
         while (data != -1) {
             insideFile.append((char) data);

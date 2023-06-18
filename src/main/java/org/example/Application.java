@@ -5,15 +5,13 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 public class Application {
-    private LoadingScreen fileHandler;
+    private final LoadingScreen fileHandler;
     private UserInteraction userInteraction;
     private Music song;
 
     public Application() {
         fileHandler = new LoadingScreen();
         userInteraction = new UserInteraction(song);
-
-
     }
 
     public void startup() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
@@ -28,13 +26,6 @@ public class Application {
         //Ask username
         String username = userInteraction.askUsername();
 
-        try {
-            Music song = new Music();
-            song.playMusic();
-        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
 
         try {
             fileHandler.writeToFile("Welcome.txt", "Welcome, " + username);
@@ -57,15 +48,9 @@ public class Application {
         song.playMusic();
         userInteraction = new UserInteraction(song);
         userInteraction.Controls();
-        while (true) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
+
+        System.out.println("Dosvidania!");
     }
-
-
 }
+
 

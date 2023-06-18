@@ -15,25 +15,29 @@ public class Music {
 
     public Music() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 
-        this.musicFile = this.getClass().getResource("/Ария.wav");
-        this.filePathReplace = this.musicFile.toString().replace(".wav", "");
+        musicFile = getClass().getResource("/Ария.wav");
+        filePathReplace = musicFile.toString().replace(".wav", "");
 
-        try (final AudioInputStream musicAudio = AudioSystem.getAudioInputStream(this.musicFile)) {
-            this.clip = AudioSystem.getClip();
-            this.clip.open(musicAudio);
+        try (AudioInputStream musicAudio = AudioSystem.getAudioInputStream(musicFile)) {
+            clip = AudioSystem.getClip();
+            clip.open(musicAudio);
 
         }
     }
 
     public Clip getClip() {
-        return this.clip;
+        return clip;
     }
 
     public void playMusic() {
-        if (this.clip != null) {
-            this.clip.start();
-            final File musicFileObj = new File(this.musicFile.getFile());
-            final String songNameEncoded = musicFileObj.getName();
+        if (clip != null) {
+            if (clip.isRunning()) {
+                clip.stop();
+            }
+            clip.setMicrosecondPosition(0);
+            clip.start();
+            File musicFileObj = new File(musicFile.getFile());
+            String songNameEncoded = musicFileObj.getName();
             String songName = null;
             songName = URLDecoder.decode(songNameEncoded, StandardCharsets.UTF_8);
             System.out.println("Currently playing: " + songName.replace(".wav", ""));
