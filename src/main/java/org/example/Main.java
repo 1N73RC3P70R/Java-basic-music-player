@@ -6,55 +6,21 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        LoadingScreen loadingScreen = new LoadingScreen();
-        UserInteraction userInteraction = new UserInteraction();
-
-
-        //Ignition key check
-        if (loadingScreen.fileExists("SECRET FILE.txt")) {
-            userInteraction.loadingMessage();
-
-        } else {
-            userInteraction.ignitionKeyError();
-            return;
-        }
-
-
-        //Ask username
-        String username = userInteraction.askUsername();
+        Application Pulvinus = new Application();
 
         try {
-            Music song = new Music();
-            song.playMusic();
-        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
-            e.printStackTrace();
+            try {
+                Pulvinus.startup();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (UnsupportedAudioFileException e) {
+                throw new RuntimeException("Audio not supported.");
+            } catch (LineUnavailableException e) {
+                throw new RuntimeException("No more space available.");
+            }
+        } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
-
-        try {
-            loadingScreen.writeToFile("Welcome.txt", "Welcome, " + username);
-            String welcome = loadingScreen.readFromFile("Welcome.txt");
-            userInteraction.display(welcome);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-
-
-        try {
-            String ignitionKey = loadingScreen.readFromFile("SECRET FILE.txt");
-            userInteraction.display(ignitionKey);
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    while (true) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }}
-
+    }
 }
 
