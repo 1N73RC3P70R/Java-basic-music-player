@@ -2,6 +2,7 @@ package org.example;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import java.awt.*;
 import java.io.IOException;
 
 public class Application {
@@ -12,9 +13,12 @@ public class Application {
     public Application() {
         fileHandler = new LoadingScreen();
         userInteraction = new UserInteraction(song);
+    Borders frame = new Borders();
     }
 
     public void startup() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+        Borders frame = new Borders();
+        frame.Frame();
         //Ignition key check
         if (fileHandler.fileExists("SECRET FILE.txt")) {
             userInteraction.loadingMessage();
