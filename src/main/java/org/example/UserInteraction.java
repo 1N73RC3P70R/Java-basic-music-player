@@ -35,7 +35,8 @@ public class UserInteraction {
     }
 
     public void Controls() {
-        System.out.println("Enter the number of the operation which you would like to execute.\n0. Exit\n1. Stop music\n2. Start music\n3. Repeat song");
+        System.out.println("Enter the number of the operation which you would like to execute.\n0. Exit" +
+                "\n1. Stop music\n2. Start music\n3. Repeat song");
         int choice = scanner.nextInt();
         while (choice >= 0) {
             switch (choice) {
