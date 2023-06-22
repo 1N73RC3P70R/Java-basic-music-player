@@ -30,7 +30,7 @@ public class Borders {
     }
 
     public void Backgroud() {
-        frame.getContentPane().setBackground(new Color(51, 255, 255));
+        frame.getContentPane().setBackground(new Color(55, 255, 255));
     }
 
     public void Internals() {
@@ -43,6 +43,9 @@ public class Borders {
         label.setFont(new Font("Wide Latin", Font.BOLD,20));
         label.setIconTextGap(15);
         label.setBorder(programBorder);
+        label.setVerticalAlignment(SwingConstants.CENTER);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+
 
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(label, BorderLayout.CENTER);
