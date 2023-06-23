@@ -2,7 +2,7 @@
 ---
  The Platform
 
-[] Design
-[] ASCII арт
-[] Loading screen
-[] Музыка
+[X] Design
+[X] ASCII арт
+[X] Loading screen
+[X] Музыка
