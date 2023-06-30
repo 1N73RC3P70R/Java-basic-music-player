@@ -4,19 +4,31 @@
 
 
 
-1.Design
-2.ASCII арт
-3.Loading screen
-4.Музыка
+1. Design
+
+1. ASCII арт
+
+1. Loading screen
+
+1. Музыка
 - find song
 - create the controls
 
--[x] Design ready
--[x] Githup page set up
--[x] Bugs fixed
 
-[You can find more projects here](https://github.com/1N73RC3P70R)
 
-Q&A:
-Q: Where's the documentation?
-A: ![A picture equals a 1000 words](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN-BYjFJFAQJ9-nRHuV48lOOR7LdkPMGrbDA&usqp=CAU)
+
+- [x] Design ready
+- [x] Githup page set up
+- [x] Bugs fixed, especially in ```Music.java```
+
+
+| [You can find more projects here](https://github.com/1N73RC3P70R) |
+
+
+
+
+Q&A
+>Where's the documentation?
+
+
+![A picture equals a 1000 words](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN-BYjFJFAQJ9-nRHuV48lOOR7LdkPMGrbDA&usqp=CAU)
