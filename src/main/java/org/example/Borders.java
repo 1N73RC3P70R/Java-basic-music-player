@@ -5,15 +5,18 @@ import org.w3c.dom.Text;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Borders {
-    Border programBorder = BorderFactory.createLineBorder(Color.RED,7,true);
+    Border programBorder = BorderFactory.createLineBorder(Color.RED, 7, true);
     JFrame frame = new JFrame();
     ImageIcon thumbnail;
     ImageIcon theEye;
 
     public void Frame() {
         frame.setTitle("Pulvinus");
+
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Icon();
@@ -40,7 +43,7 @@ public class Borders {
         label.setHorizontalTextPosition(SwingConstants.CENTER);
         label.setVerticalTextPosition(SwingConstants.BOTTOM);
         label.setForeground(new Color(0xFF0000));
-        label.setFont(new Font("Wide Latin", Font.BOLD,20));
+        label.setFont(new Font("Wide Latin", Font.BOLD, 20));
         label.setIconTextGap(15);
         label.setBorder(programBorder);
         label.setVerticalAlignment(SwingConstants.CENTER);
@@ -50,7 +53,5 @@ public class Borders {
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(label, BorderLayout.CENTER);
     }
-    public void programBorder(){
-
-    }
 }
+
