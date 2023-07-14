@@ -17,7 +17,10 @@ public class Borders {
     public void Frame() {
         frame.setTitle("Pulvinus");
 
+        startButton();
 
+        frame.pack();
+        frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Icon();
         Internals();
@@ -52,6 +55,17 @@ public class Borders {
 
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(label, BorderLayout.CENTER);
+    }
+
+    public void startButton(){
+        JButton button = new JButton("Launch");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        frame.getContentPane().add(button, BorderLayout.NORTH);
+
     }
 }
 
