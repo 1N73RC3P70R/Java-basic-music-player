@@ -1,7 +1,5 @@
 package org.example;
 
-import org.w3c.dom.Text;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -15,56 +13,56 @@ public class Borders {
     ImageIcon theEye;
 
     public void Frame() {
-        frame.setTitle("Pulvinus");
+        this.frame.setTitle("Pulvinus");
 
-        startButton();
+        this.startButton();
 
-        frame.pack();
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        Icon();
-        Internals();
-        Backgroud();
-        frame.setIconImage(thumbnail.getImage());
-        frame.pack();
-        frame.setVisible(true);
+        this.frame.pack();
+        this.frame.setVisible(true);
+        this.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.Icon();
+        this.Internals();
+        this.Backgroud();
+        this.frame.setIconImage(this.thumbnail.getImage());
+        this.frame.pack();
+        this.frame.setVisible(true);
     }
 
     public void Icon() {
-        thumbnail = new ImageIcon(getClass().getResource("/AI Cross.jpg"));
-        theEye = new ImageIcon(getClass().getResource("/The Eye.png"));
+        this.thumbnail = new ImageIcon(this.getClass().getResource("/AI Cross.jpg"));
+        this.theEye = new ImageIcon(this.getClass().getResource("/The Eye.png"));
     }
 
     public void Backgroud() {
-        frame.getContentPane().setBackground(new Color(55, 255, 255));
+        this.frame.getContentPane().setBackground(new Color(55, 255, 255));
     }
 
     public void Internals() {
-        JLabel label = new JLabel();
+        final JLabel label = new JLabel();
         label.setText("What would you like to do today?");
-        label.setIcon(theEye);
+        label.setIcon(this.theEye);
         label.setHorizontalTextPosition(SwingConstants.CENTER);
         label.setVerticalTextPosition(SwingConstants.BOTTOM);
         label.setForeground(new Color(0xFF0000));
         label.setFont(new Font("Wide Latin", Font.BOLD, 20));
         label.setIconTextGap(15);
-        label.setBorder(programBorder);
+        label.setBorder(this.programBorder);
         label.setVerticalAlignment(SwingConstants.CENTER);
         label.setHorizontalAlignment(SwingConstants.CENTER);
 
 
-        frame.getContentPane().setLayout(new BorderLayout());
-        frame.getContentPane().add(label, BorderLayout.CENTER);
+        this.frame.getContentPane().setLayout(new BorderLayout());
+        this.frame.getContentPane().add(label, BorderLayout.NORTH);
     }
 
-    public void startButton(){
-        JButton button = new JButton("Launch");
+    public void startButton() {
+        final JButton button = new JButton("Launch");
         button.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
             }
         });
-        frame.getContentPane().add(button, BorderLayout.NORTH);
+        this.frame.getContentPane().add(button, BorderLayout.CENTER);
 
     }
 }

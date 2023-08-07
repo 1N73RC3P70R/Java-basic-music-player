@@ -29,6 +29,7 @@ public class Music {
         return clip;
     }
 
+//Song finder
     public void playMusic() {
         if (clip != null) {
             if (clip.isRunning()) {
