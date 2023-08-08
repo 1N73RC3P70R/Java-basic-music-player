@@ -17,6 +17,8 @@ public class LoadingScreen {
         writer.close();
     }
 
+    //prints the ASCII art of the file
+
     public String readFromFile(final String filename) throws IOException {
         final FileReader readFromFile = new FileReader(filename);
         final StringBuilder insideFile = new StringBuilder();
