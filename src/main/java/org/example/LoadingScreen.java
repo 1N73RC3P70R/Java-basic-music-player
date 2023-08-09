@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//shows the loading screen
 public class LoadingScreen {
     public boolean fileExists(final String filename) {
         final File ignitionKey = new File(filename);
